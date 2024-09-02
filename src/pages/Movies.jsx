@@ -14,7 +14,6 @@ const Movies = () => {
     const [filter, setFilter] = useState('');
     const [sortOrder, setSortOrder] = useState('');
     const [range, setRange] = useState([0, 100]);
-    console.log(range[0]+1924, range[1]+1924);
     let navigate = useNavigate();
    
     function handleChanges(event, newValue) {
