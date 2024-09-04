@@ -114,28 +114,38 @@ button:active {
 
 .page {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
   border-radius: 50px;
   border: none;
-  color: white;
-  background-color: #2b313f;
+  color: #2b313f;
+  background-color: white;
   padding: 8px;
-  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 12px;
 }
 
 .back, .forward {
   font-weight: 700;
   font-size: 20px;
-  border-radius: 50px;
+  border-radius: 100px;
   border: none;
-  color: #2b313f;
-  padding:16px 0;
-  background-color: white;
+  background-color: #2b313f;
+  color: white;
+  padding:4px;
+  margin-top:2px;
+  width: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.forward {
+  margin-left: 12px;
+}
+
+.back {
+  margin-right: 12px;
+}
 .disabled {
   color: rgba(43, 49, 63, 0.1);
   cursor:not-allowed;
@@ -164,6 +174,8 @@ button:active {
 
 .search__options {
   margin:0 40px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .center {

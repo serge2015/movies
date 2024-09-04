@@ -18,8 +18,14 @@ const MovieInfo = () => {
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=4cfe7eb4&i=${id}&plot=full`
     );
-    setMovie(data);
-    setIsLoading(false);
+    if (!data.Response) {
+      setMovie(data);
+      console.log(data);
+      setIsLoading(false);
+    } else {
+      alert("No movies match your search. Check your input and try again.");
+      navigate(-1);
+    }
   }
 
   useEffect(() => {
@@ -40,7 +46,7 @@ const MovieInfo = () => {
     <>
       <div className="container">
         <div className="row">
-        <button className='back' onClick={() => navigate(-1)}>{backIcon}&nbsp;&nbsp;Back</button> 
+        <button className='page' onClick={() => navigate(-1)}>{backIcon}  Back</button>
           <div className="movies">
             {isLoading ? (
               <>

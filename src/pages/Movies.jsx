@@ -7,7 +7,6 @@ import { Slider } from "@mui/material";
 import {
   faArrowLeft,
   faArrowRight,
-  faGreaterThan,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -26,10 +25,10 @@ const Movies = () => {
   let navigate = useNavigate();
   const forwardIcon = <FontAwesomeIcon icon={faArrowRight} />;
   const backIcon = <FontAwesomeIcon icon={faArrowLeft} />;
-  const pageIcon = <FontAwesomeIcon icon={faGreaterThan} />;
   let action = "";
   var total = 0;
   var max = 0;
+  var pageToDisplay = 0;
 
   function handleChanges(event, newValue) {
     setRange(newValue);
@@ -38,11 +37,25 @@ const Movies = () => {
         return movie.Year >= range[0] + 1924 && movie.Year <= range[1] + 1924;
       })
     );
+    if (filteredMovies.length < 1) {
+      alert("No movies match your range.");
+      setRange([0, 100]);
+      setFilteredMovies(movies);
+    }
   }
 
   function getMaxPages(total) {
     max = Math.ceil(total / 10);
     setMaxPages(max);
+  }
+
+  function getNewPage(action) {
+    if (action === 'forward') {
+      pageToDisplay = pageNumber + 1;
+    } else {
+      pageToDisplay = pageNumber - 1;
+    }
+    displayPage(pageToDisplay);
   }
 
   function displayPage(newPage) {
@@ -102,26 +115,16 @@ const Movies = () => {
     <>
       <div className="container">
         <div className="row">
-          {/* {pageNumber > 1 ? <>
-        <button className='back' id="back" onClick={() => displayPage('back')}
-        >{backIcon}&nbsp;&nbsp;Back</button></>: ''}  */}
           <div className="searchbar">
             <div className="search__options">
-              Search results for <span className="bold">{keyword}</span>
+              Search results for&nbsp;<span className="bold">{keyword}</span>
             </div>
             <div className="search__options">
-              <label>Page </label>
-              <input
-                type="number"
-                className="input__page"
-                id="page"
-                min={minPages}
-                max={maxPages}
-                value={pageNumber}
-                onChange={(event) => displayPage(event.target.value)}
-              />{" "}
-              of {maxPages}
-              {/* <button className="page" onClick={() => getMovies(keyword, pageNumber)}>Go</button> */}
+              {pageNumber > 1 ?
+              <button className="back" value={pageNumber} onClick={() => getNewPage('back')}>{backIcon}</button>: ''}
+              Page {pageNumber} of {maxPages}
+              {pageNumber < maxPages ?
+              <button className="forward" value={pageNumber} onClick={() => getNewPage('forward')}>{forwardIcon}</button>: ''}
             </div>
           </div>
           <div className="searchbar level2">
@@ -151,7 +154,6 @@ const Movies = () => {
               </select>
             </div>
           </div>
-          {/* <button className='back' id="forward" onClick={() => displayPage('forward')}>Next Page&nbsp;&nbsp;{forwardIcon}</button> */}
           <div className="movies">
             {isLoading && pageNumber === 1
               ? new Array(10).fill(0).map((_, index) => (
