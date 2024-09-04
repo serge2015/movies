@@ -68,7 +68,7 @@ h1 {
 
 h2 {
   font-size: 32px;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
   text-align: center;
   font-weight:400;
   color:black;
@@ -112,6 +112,17 @@ button:active {
   left: -40px;
 }
 
+.page {
+  font-weight: bold;
+  font-size: 28px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  background-color: #2b313f;
+  padding: 8px;
+  margin-left: 8px;
+}
+
 .back, .forward {
   font-weight: 700;
   font-size: 20px;
@@ -135,26 +146,48 @@ button:active {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  font-size: 28px;
-  margin-top: -24px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #2b313f;
+  font-size: 24px;
+  margin: -12px auto 24px auto;
+  width:80%;
 }
 
-.slidecontainer {
-  width: 50%; /* Width of the outside container */
+.level2 {
+  background-color: rgba(43, 49, 63, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  width:70%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.search__options {
+  margin:0 40px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slide__container {
+  width: 100%; 
+  margin:0 10px;
 }
 
 /* The slider itself */
 .slider {
   appearance: none;
-  width: 50%; /* Full-width */
+  width: 300px; /* Full-width */
   height: 5px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
+  background:none; /* Grey background */
   outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
+  margin:20px 0;
 }
 
 /* Mouse-over effects */
@@ -196,9 +229,6 @@ input {
   border-radius: 30px;
   font-size: 20px;
   border: none;
-  /* border-color: #baf2fb;
-  border-width: 2px;
-  border-style: double; */
   padding: 12px;
   color: black;
   background-color: white;
@@ -218,8 +248,33 @@ input:focus {
   font-weight: bold;
   font-size: 28px;
   margin-left: 36px;
+  padding: 12px 0 24px 0;
 }
 
+.second{
+  background-color: rgba(43, 49, 63, 0.5);
+  padding:12px 0 20px 40px;
+  position: relative;
+  left:-20px;
+  border-radius: 20px;
+  font-weight: normal;
+  font-size:24px;
+  color: white;
+  display: block;
+}
+
+.second p {
+  padding: 10px 20px 10px 0;
+}
+
+.input__page {
+  text-align: right;
+  font-size: 24px;
+  border: 1px black solid;
+  padding: 0;
+  border-radius: 0;
+  width:40px;
+}
 
 .btn {
   background-color: #ffffff;
@@ -362,8 +417,7 @@ header {
   align-items: center;
   background-color: rgba(13, 162, 214, 0.9);
   padding: 20px;
-  border-radius: 40px;
-  aspect-ratio: square;
+  border-radius: 20px;
   margin: 100px 0;
   text-align: center;
 }
@@ -406,7 +460,8 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 -24px;
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 0 32px;
 }
 
 .movie {
@@ -519,33 +574,11 @@ footer {
 /* 
 **
 
-BOOKS PAGE
+MOVIES PAGE
 
 **
 */
 
-#books__body {
-  background-color: rgba(115, 66, 214, 0.1);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-#books__main {
-  flex: 1;
-  background-color: rgb(248,249,250);
-}
-
-.books__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
-}
-
-.books__header--title {
-  margin-bottom: 0;
-}
 
 select {
   background-color: #fff;
@@ -560,117 +593,10 @@ select {
   max-width: 200px;
 }
 
-.books__loading {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 60px;
-  font-size: 60px;
-  color: #ffffff;
-}
-
-.fa-spinner {
-  animation: rotate 600ms infinite linear;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* 
-
-  book/:id
-    
-*/
-
-.container__book--selected {
-  padding-top: 16px;
-}
-
-.book__selected {
-  display: flex;
-}
-
-.book__selected--figure {
-  width: 40%;
-  padding: 16px 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.book__selected--img {
-  max-height: 500px;
-  width: auto;
-  max-width: 100%;
-}
-
-.book__selected--description {
-  width: 60%;
-  padding: 16px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.book__selected--top {
-  padding: 0 24px;
-  margin-bottom: 8px;
-  font-size: 32px;
-  color: #242424;
-  display: flex;
-  align-items: center;
-}
-
-.book__selected--link {
-  color: #242424;
-}
-
-.fa-arrow-left {
-  font-size: 30px;
-}
-
-.book__selected--title--top {
-  margin-left: 10px;
-  margin-bottom: 0;
-}
-
-.book__summary {
-  margin-bottom: 16px;
-}
-
-.book__selected--title {
-  margin-bottom: 8px
-}
-
-.book__summary--title {
-  margin-bottom: 8px;
-}
-
-.book__summary--para {
-  margin-bottom: 16px;
-}
-
-.book__price {
-  font-size: 16px;
-  margin: 8px 0 24px 0;
-}
-
-.link__breadcrumbs {
-  color: #bfbfbf;
-  margin-bottom: 16px;
-}
 /* LAPTOPS */
 @media (max-width: 1024px) {
-  .movies {
-    justify-content: center;
+  .searchbar {
+    font-size: 20px;
   }
 }
 
@@ -685,9 +611,12 @@ select {
     width: 300px;
   }
 
-  .movies {
-    justify-content: center;
-    align-items: center;
+  .searchbar {
+    flex-direction: column;
+  }
+
+  .search__options {
+    margin-top: 20px;
   }
 
   h1 {
@@ -703,29 +632,11 @@ select {
     font-size: 18px;
   }
 
-  .book {
-    width: 50%;
-  }
-
-  .book__selected {
-    flex-direction: column;
-  }
-  .book__selected--figure {
-    width: 100%;
-    justify-content: flex-start;
-  }
-  .book__selected--description {
-    width: 100%;
-  }
 }
 
 
 /* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
-  .movies {
-    align-items: center;
-    justify-content: center;
-  }
 
   .btn__menu {
     display: block;
@@ -735,18 +646,4 @@ select {
     display: none;
   }
 
-  .highlight {
-    width: 100%;
-  }
-
-  .highlight:not(:last-child) {
-    margin-bottom: 24px;
-  }
-
-  .cart__book--img {
-    display: none;
-  }
-  .cart__book--info {
-    padding-left: 0;
-  }
 }

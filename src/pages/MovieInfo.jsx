@@ -72,10 +72,7 @@ const MovieInfo = () => {
                 <div className="hold">
                   <div className="movie-card">
                     <div className="movie-card__container">
-                      <img 
-                      className="movie__img" 
-                      src={movie?.Poster ? `${movie.Poster}` : blankPlaceholder} 
-                      alt="Poster" />
+                    <img className="movie__img" src={movie.Poster !== "N/A" ? `${movie.Poster}` : blankPlaceholder} alt="Poster" />
                       <h3 className="movie__title">
                         {movie.Title}
                         <span className="lighter">
